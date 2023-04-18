@@ -36,6 +36,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_screenutil: ^5.7.0
+  custom_radio_grouped_button: ^2.2.0
+  dotted_border: ^2.0.0+3
 
 dev_dependencies:
   flutter_test:

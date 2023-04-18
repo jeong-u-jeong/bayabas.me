@@ -1,5 +1,7 @@
 import 'package:diagnosis/global_assets/global_style.dart';
+import 'package:diagnosis/page/diagnosis_area.dart';
 import 'package:diagnosis/page/diagnosis_condition.dart';
+import 'package:diagnosis/page/diagnosis_mbti.dart';
 import 'package:flutter/material.dart';
 
 double pageWidth = MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width;
@@ -19,7 +21,9 @@ class StepTwo extends StatelessWidget {
               Container(height: 70,),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => DiagnosisCondition()),);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DiagnosisCondition()),);
                 },
                 child: Contents(
                     title: '두피 건강 테스트',
@@ -33,7 +37,9 @@ class StepTwo extends StatelessWidget {
               Container(height: 50,),
               GestureDetector(
                 onTap: () {
-
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DiagnosisMbti()),);
                 },
                 child: Contents(
                     title: '두피 타입 테스트',
@@ -47,7 +53,9 @@ class StepTwo extends StatelessWidget {
               Container(height: 50,),
               GestureDetector(
                 onTap: () {
-
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DiagnosisArea()),);
                 },
                 child: Contents(
                     title: '두피 면적 테스트',
