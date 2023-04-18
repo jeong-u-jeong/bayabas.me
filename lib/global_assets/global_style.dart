@@ -12,6 +12,8 @@ class GlobalStyle {
   static const Color gray = Color(0xffababab);
   static const Color light_green = Color(0xffEAF8F1);
   static const Color green = Color(0xff26C672);
+  static const Color intro_txt_gray = Color(0xff354256);
+  static const Color intro_border_gray = Color(0xff6a6a6a);
 }
 
 
