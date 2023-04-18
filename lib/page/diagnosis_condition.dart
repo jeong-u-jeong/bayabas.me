@@ -1,6 +1,7 @@
 import 'package:diagnosis/global_assets/global_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DiagnosisCondition extends StatefulWidget {
 
@@ -9,6 +10,10 @@ class DiagnosisCondition extends StatefulWidget {
 }
 
 class _DiagnosisConditionState extends State<DiagnosisCondition> {
+  double pageWidth =
+      MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width;
+  double mobileWidth = 500;
+  bool isWeb = false;
 
   List<String>contentsList = [
     '가족이나 친척에 탈모가 진행된 사람이 있나요?',
@@ -42,6 +47,8 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
 
   @override
   Widget build(BuildContext context) {
+    pageWidth = MediaQuery.of(context).size.width;
+    isWeb = pageWidth > mobileWidth ? true : false;
     return Scaffold(
       body: Container(
         child: Column(
@@ -56,7 +63,7 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
                 child: Text(
                   '내 두피상태 진단',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 20,
                     color: GlobalStyle.dark
                   ),
                 ),
@@ -67,12 +74,37 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
               height: MediaQuery.of(context).size.height - 160,
               color: GlobalStyle.white,
               child:
-                  ListView.builder(
-                      itemCount: contentsList.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Check(contents: contentsList[index], subContents: subContentsList[index]);
-                      }
-                  )
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Column(
+                        children: [
+                      for (var i = 0; i < contentsList.length; i++)
+                        Check(contents: contentsList[i], subContents: subContentsList[i])
+                        ],
+                      ),
+                      Container(
+                        width: 160,
+                        height: 42,
+                        decoration: BoxDecoration(
+                          color: GlobalStyle.gray,
+                          borderRadius: BorderRadius.circular(5)
+                        ),
+                        child: Center(
+                          child: Text('결과보기',
+                          style: TextStyle(
+                            color: GlobalStyle.white,
+                            fontSize: 14
+                          ),
+                      ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(bottom: 60)
+                      )
+                    ],
+                  ),
+                )
             )
           ],
         ),
