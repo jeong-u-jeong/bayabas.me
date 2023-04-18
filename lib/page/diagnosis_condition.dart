@@ -13,21 +13,21 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
   double pageWidth =
       MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width;
   double mobileWidth = 500;
-  bool isWeb = false;
+  bool isWeb = true;
 
   List<String>contentsList = [
-    '가족이나 친척에 탈모가 진행된 사람이 있나요?',
-    '아토피 또는 알레르기가 있나요?',
-    '어렸을 때부터 모발이 가늘고 약한 편인가요?',
-    '손, 발이 차고 자주 저린가요?',
-    '열이 많고 땀 분비량이 많은 편인가요?',
-    '술을 자주 먹는 편인가요?',
-    '수면이 불규칙한가요?',
-    '인스턴트 음식 섭취가 많은가요?',
-    '스트레스를 많이 받는 편인가요?',
-    '평소 두피를 만지면 아픈가요?',
-    '두피에 각질 또는 염증이 있나요?',
-    '샴푸 후 모발이 많이 빠지나요?',
+    '1. 가족이나 친척에 탈모가 진행된 사람이 있나요?',
+    '2. 아토피 또는 알레르기가 있나요?',
+    '3. 어렸을 때부터 모발이 가늘고 약한 편인가요?',
+    '4. 손, 발이 차고 자주 저린가요?',
+    '5. 열이 많고 땀 분비량이 많은 편인가요?',
+    '6. 술을 자주 먹는 편인가요?',
+    '7. 수면이 불규칙한가요?',
+    '8. 인스턴트 음식 섭취가 많은가요?',
+    '9. 스트레스를 많이 받는 편인가요?',
+    '10. 평소 두피를 만지면 아픈가요?',
+    '11. 두피에 각질 또는 염증이 있나요?',
+    '12. 샴푸 후 모발이 많이 빠지나요?',
   ];
 
   List<String>subContentsList = [
@@ -54,16 +54,16 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
         child: Column(
           children: [
             Container(
-              height: 160,
+              height: isWeb ? 160 : 58,
               width: double.infinity,
               decoration: const BoxDecoration(
-                color: GlobalStyle.light_green,
+                color: GlobalStyle.background_gray,
               ),
               child: Center(
                 child: Text(
                   '내 두피상태 진단',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: isWeb ? 20 : 14,
                     color: GlobalStyle.dark
                   ),
                 ),
@@ -71,7 +71,7 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
             ),
             Container(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height - 160,
+              height: isWeb ? MediaQuery.of(context).size.height - 160 : MediaQuery.of(context).size.height - 58,
               color: GlobalStyle.white,
               child:
                 SingleChildScrollView(
@@ -84,24 +84,22 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
                         ],
                       ),
                       Container(
-                        width: 160,
-                        height: 42,
+                        margin: EdgeInsets.only(top: isWeb ? 100 : 70, bottom: 60),
+                        width: isWeb ? 190 : 100,
+                        height: isWeb ? 52 : 38,
                         decoration: BoxDecoration(
                           color: GlobalStyle.gray,
-                          borderRadius: BorderRadius.circular(5)
+                          borderRadius: BorderRadius.circular(isWeb ? 5 : 2)
                         ),
                         child: Center(
                           child: Text('결과보기',
                           style: TextStyle(
                             color: GlobalStyle.white,
-                            fontSize: 14
+                            fontSize: isWeb ? 16 : 12
                           ),
                       ),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(bottom: 60)
-                      )
                     ],
                   ),
                 )
@@ -139,39 +137,47 @@ class _CheckState extends State<Check> {
   bool fourth = false;
   bool fifth = false;
 
+  double pageWidth =
+      MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width;
+  double mobileWidth = 500;
+  bool isWeb = true;
+
+
   @override
   Widget build(BuildContext context) {
+    pageWidth = MediaQuery.of(context).size.width;
+    isWeb = pageWidth > mobileWidth ? true : false;
     return Opacity(
       opacity: first || second || third || fourth || fifth ? 0.4 : 1,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 100),
+        padding: EdgeInsets.symmetric(vertical: isWeb ? 100 : 48, horizontal: isWeb ? 0 : 20),
         child: Column(
           children: [
             Text(widget.contents,
-              style: const TextStyle(
-                  fontSize: 18,
+              style: TextStyle(
+                  fontSize: isWeb ? 18 : 14,
                   color: GlobalStyle.dark,
                   fontWeight: FontWeight.w600
               ),
             ),
             Container(height: 12,),
             Text(widget.subContents,
-              style: const TextStyle(
-                  fontSize: 18,
+              style: TextStyle(
+                  fontSize: isWeb ? 18 : 14,
                   color: GlobalStyle.dark
               ),
             ),
             Container(height: 52,),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: isWeb ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
               children: [
-                const Text('전혀 아니다',
+                Text(isWeb ? '전혀 아니다' : '비동의',
                   style: TextStyle(
                       color: GlobalStyle.light_purple,
-                      fontSize: 18
+                      fontSize: isWeb ? 18 : 14,
                   ),
                 ),
-                Container(width: 106,),
+                Container(width: isWeb ? 106 : 0),
                 Column(
                   children: [
                     GestureDetector(
@@ -185,12 +191,12 @@ class _CheckState extends State<Check> {
                         });
                       },
                       child: Container(
-                        width: 40,
-                        height: 40,
+                        width: isWeb ? 40 : 26,
+                        height: isWeb ? 40 : 26,
                         decoration: BoxDecoration(
                             border: Border.all(
                                 color: GlobalStyle.light_purple,
-                                width: 3
+                                width: isWeb ? 3 : 2,
                             ),
                             borderRadius: BorderRadius.circular(100)
                         ),
@@ -205,7 +211,7 @@ class _CheckState extends State<Check> {
                     ),
                   ],
                 ),
-                Container(width: 106,),
+                Container(width: isWeb ? 106 : 0,),
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -217,26 +223,26 @@ class _CheckState extends State<Check> {
                     });
                   },
                   child: Container(
-                    width: 34,
-                    height: 34,
+                    width: isWeb ? 34 : 26,
+                    height: isWeb ? 34 : 26,
                     decoration: BoxDecoration(
                         border: Border.all(
-                            color: GlobalStyle.light_purple,
-                            width: 3
+                          color: isWeb ? GlobalStyle.light_purple : GlobalStyle.light_purple.withOpacity(0.6),
+                            width: isWeb ? 3 : 2,
                         ),
                         borderRadius: BorderRadius.circular(100)
                     ),
                     child: Container(
                       margin: const EdgeInsets.all(3),
                       decoration: BoxDecoration(
-                          color: second ? GlobalStyle.light_purple : GlobalStyle.transparent,
+                          color: second ? isWeb ? GlobalStyle.light_purple : GlobalStyle.light_purple.withOpacity(0.6) : GlobalStyle.transparent,
                           borderRadius: BorderRadius.circular(100)
 
                       ),
                     ),
                   ),
                 ),
-                Container(width: 106,),
+                Container(width: isWeb ? 106 : 0,),
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -248,12 +254,12 @@ class _CheckState extends State<Check> {
                     });
                   },
                   child: Container(
-                    width: 28,
-                    height: 28,
+                    width: isWeb ? 28 : 26,
+                    height: isWeb ? 28 : 26,
                     decoration: BoxDecoration(
                         border: Border.all(
                             color: GlobalStyle.gray,
-                            width: 3
+                            width: isWeb ? 3 : 2,
                         ),
                         borderRadius: BorderRadius.circular(100)
                     ),
@@ -267,7 +273,7 @@ class _CheckState extends State<Check> {
                     ),
                   ),
                 ),
-                Container(width: 106,),
+                Container(width: isWeb ? 106 : 0,),
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -279,26 +285,26 @@ class _CheckState extends State<Check> {
                     });
                   },
                   child: Container(
-                    width: 34,
-                    height: 34,
+                    width: isWeb ? 34 : 26,
+                    height: isWeb ? 34 : 26,
                     decoration: BoxDecoration(
                         border: Border.all(
-                            color: GlobalStyle.green,
-                            width: 3
+                            color: isWeb ? GlobalStyle.green : GlobalStyle.green.withOpacity(0.6),
+                            width: isWeb ? 3 : 2
                         ),
                         borderRadius: BorderRadius.circular(100)
                     ),
                     child: Container(
                       margin: const EdgeInsets.all(3),
                       decoration: BoxDecoration(
-                          color: fourth ? GlobalStyle.green : GlobalStyle.transparent,
+                          color: fourth ? isWeb ? GlobalStyle.green : GlobalStyle.green.withOpacity(0.6) : GlobalStyle.transparent,
                           borderRadius: BorderRadius.circular(100)
 
                       ),
                     ),
                   ),
                 ),
-                Container(width: 106),
+                Container(width: isWeb ? 106 : 0,),
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -310,12 +316,12 @@ class _CheckState extends State<Check> {
                     });
                   },
                   child: Container(
-                    width: 40,
-                    height: 40,
+                    width: isWeb ? 40 : 26,
+                    height: isWeb ? 40 : 26,
                     decoration: BoxDecoration(
                         border: Border.all(
                             color: GlobalStyle.green,
-                            width: 3
+                            width: isWeb ? 3 : 2
                         ),
                         borderRadius: BorderRadius.circular(100)
                     ),
@@ -329,11 +335,11 @@ class _CheckState extends State<Check> {
                     ),
                   ),
                 ),
-                Container(width: 106,),
-                const Text('매우 그렇다',
+                Container(width: isWeb ? 106 : 0,),
+                Text(isWeb ? '매우 그렇다' : '동의',
                   style: TextStyle(
                       color: GlobalStyle.green,
-                      fontSize: 18
+                    fontSize: isWeb ? 18 : 14,
                   ),
                 ),
               ],
