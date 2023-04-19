@@ -3,18 +3,26 @@ import 'package:diagnosis/page/diagnosis_area.dart';
 import 'package:diagnosis/page/diagnosis_condition.dart';
 import 'package:diagnosis/page/diagnosis_mbti.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-double pageWidth = MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width;
-
-const double mobileWidth = 700;
-
-class StepTwo extends StatelessWidget {
+class StepTwo extends StatefulWidget {
   const StepTwo({Key? key}) : super(key: key);
+
+  @override
+  State<StepTwo> createState() => _StepTwoState();
+}
+
+class _StepTwoState extends State<StepTwo> {
+  double mediaWidth(BuildContext context, double scale) =>
+      MediaQuery.of(context).size.width * scale;
+  double mediaHeight(BuildContext context, double scale) =>
+      MediaQuery.of(context).size.height * scale;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: Get.width > 414
+      ? SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
@@ -71,7 +79,12 @@ class StepTwo extends StatelessWidget {
           ),
 
         ),
+      )
+      :
+      Container(
+        child: Text('이페이지 테스트'),
       ),
+
     );
   }
 }

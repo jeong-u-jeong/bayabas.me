@@ -66,11 +66,8 @@ class OneTest extends StatefulWidget {
 }
 
 class _OneTestState extends State<OneTest> {
-
-  bool one = false;
-  bool two = false;
-
-  // List<String> gender = ['남자', '여자'];
+  bool female = false;
+  bool male = false;
 
   @override
   Widget build(BuildContext context) {
@@ -80,53 +77,65 @@ class _OneTestState extends State<OneTest> {
             tabtitle: '정확한 두피 면적 계산을 위해 성별을 입력해 주세요.',
             subtitle: '바야바즈 두피면적 진단은 성별과 나이대를 토대로 면적이 계산되요.'
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GestureDetector(
-              onTap:  () {
-                setState(() {
-                  one=!one;
-                  two=false;
-                });
-              },
-              child: Container(
-                width: 150,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: one ? GlobalStyle.green :GlobalStyle.white,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Center(
-                    child: Text('남자', style: TextStyle(
-                      color: one ? GlobalStyle.white : GlobalStyle.light_gray,
-                    ),)
-                ),
-              ),
-            ),
-            Container(width: 50,),
-            GestureDetector(
-              onTap:  () {
-                setState(() {
-                  two=!two;
-                  one=false;
-                });
-              },
-              child: Container(
-                width: 150,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: two ? GlobalStyle.green :GlobalStyle.white,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Center(
-                    child: Text('여자', style: TextStyle(
-                      color: two ? GlobalStyle.white : GlobalStyle.light_gray,
-                    ),)
+        Container(
+          width: 500,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(height: 30,),
+              GestureDetector(
+                onTap:  () {
+                  setState(() {
+                    male=!male;
+                    female=false;
+                  });
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: male ? GlobalStyle.green :GlobalStyle.white,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      color: GlobalStyle.light_gray.withOpacity(0.1),
+                    ),
+                  ),
+                  child: Center(
+                      child: Text('남자', style: TextStyle(
+                        fontSize: 16,
+                        color: male ? GlobalStyle.white : GlobalStyle.light_gray,
+                      ),)
+                  ),
                 ),
               ),
-            ),
-          ],
+              Container(height: 15,),
+              GestureDetector(
+                onTap:  () {
+                  setState(() {
+                    female=!female;
+                    male=false;
+                  });
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: female ? GlobalStyle.green :GlobalStyle.white,
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(
+                        color: GlobalStyle.light_gray.withOpacity(0.1),
+                      ),
+                  ),
+                  child: Center(
+                      child: Text('여자', style: TextStyle(
+                        fontSize: 16,
+                        color: female ? GlobalStyle.white : GlobalStyle.light_gray,
+                      ),)
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -146,57 +155,237 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
+  // final List<String> age = ['10대', '20대', '30대', '40대', '50대', '60대 이상'];
+  // final List<bool> one = [false, false, false, false, false, false];
 
-
-  final List<String> age = ['10대', '20대', '30대', '40대', '50대', '60대 이상'];
-
-  // List<bool> one = [false, false, false];
-
-  var ageList;
-
+  bool one = false;
+  bool two = false;
+  bool three = false;
+  bool four = false;
+  bool five = false;
+  bool six = false;
 
   @override
   Widget build(BuildContext context) {
-
-    ageList = age.toString();
-
     return Column(
       children: [
         TabTitle(
             tabtitle: '정확한 두피 면적 계산을 위해 나이대를 입력해 주세요.',
             subtitle: '바야바즈 두피면적 진단은 성별과 나이대를 토대로 면적이 계산돼요.'
         ),
-        Container(height: 50,),
+        Container(height: 30,),
         Container(
           width: 500,
-          height: 400,
-          child: GridView.builder(
-            itemCount: 6,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 15,
-                mainAxisSpacing: 15,
-                childAspectRatio: 7/2,
-              ),
-              itemBuilder: (context , int age) {
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-
-                     });
+          height: 200,
+          child: GridView(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 15,
+              mainAxisSpacing: 10,
+              childAspectRatio: 7.5/1.7,
+            ),
+            children: [
+              // for(var i=0; i<one.length; i++)
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        one=!one;
+                        two=false;
+                        three=false;
+                        four=false;
+                        five=false;
+                        six=false;
+                      });
                     },
-                  child: Container(
-                      color: GlobalStyle.white,
-                      child: Center(child: Text('$age')),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: one ? GlobalStyle.green : GlobalStyle.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            color: GlobalStyle.light_gray.withOpacity(0.1),
+                          ),
+                      ),
+                      child: Center(
+                        child: Text('10대',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: one ? GlobalStyle.white : GlobalStyle.light_gray,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                );
-              },
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        two=!two;
+                        one=false;
+                        three=false;
+                        four=false;
+                        five=false;
+                        six=false;
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: two ? GlobalStyle.green : GlobalStyle.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            color: GlobalStyle.light_gray.withOpacity(0.1),
+                          ),
+                      ),
+                      child: Center(
+                        child: Text('20대',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: two ? GlobalStyle.white : GlobalStyle.light_gray,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        three=!three;
+                        one=false;
+                        two=false;
+                        four=false;
+                        five=false;
+                        six=false;
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: three ? GlobalStyle.green : GlobalStyle.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            color: GlobalStyle.light_gray.withOpacity(0.1),
+                          ),
+                      ),
+                      child: Center(
+                        child: Text('30대',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: three ? GlobalStyle.white : GlobalStyle.light_gray,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        four=!four;
+                        one=false;
+                        two=false;
+                        three=false;
+                        five=false;
+                        six=false;
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: four ? GlobalStyle.green : GlobalStyle.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            color: GlobalStyle.light_gray.withOpacity(0.1),
+                          ),
+                      ),
+                      child: Center(
+                        child: Text('40대',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: four ? GlobalStyle.white : GlobalStyle.light_gray,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        five=!five;
+                        one=false;
+                        two=false;
+                        three=false;
+                        four=false;
+                        six=false;
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: five ? GlobalStyle.green : GlobalStyle.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            color: GlobalStyle.light_gray.withOpacity(0.1),
+                          ),
+                      ),
+                      child: Center(
+                        child: Text('50대',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: five ? GlobalStyle.white : GlobalStyle.light_gray,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        six=!six;
+                        one=false;
+                        two=false;
+                        three=false;
+                        four=false;
+                        five=false;
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: six ? GlobalStyle.green : GlobalStyle.white,
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(
+                            color: GlobalStyle.light_gray.withOpacity(0.1),
+                          ),
+                      ),
+                      child: Center(
+                        child: Text('60대 이상',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: six ? GlobalStyle.white : GlobalStyle.light_gray,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+            ],
           ),
         ),
       ],
     );
   }
 }
+
 
 
 
@@ -213,7 +402,7 @@ class ThreeTest extends StatelessWidget {
             tabtitle: 'AI 두피 면적 계산을 위한 사진을 등록해주세요.',
             subtitle: '가이드에 근접할 수록 AI의 정확도가 높아져요.'
         ),
-        Container(height: 50,),
+        Container(height: 30,),
         Image.asset('images/best.png', width: 600, height: 300,),
         Container(height: 50,),
         DottedBorder(
