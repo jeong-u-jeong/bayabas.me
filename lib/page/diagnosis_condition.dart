@@ -385,7 +385,7 @@ class _CheckCircularState extends State<CheckCircular> {
             decoration: BoxDecoration(
                 border: Border.all(
                   color: widget.color,
-                  width: 16.h,
+                  width: Get.width > 414 ? 9.5.w : 15.w,
                 ),
                 borderRadius: BorderRadius.circular(100.r)
             ),
