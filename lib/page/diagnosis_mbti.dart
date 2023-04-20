@@ -72,7 +72,7 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
         backgroundColor: GlobalStyle.white,
         body: Get.width > 414
         // ----------------------------PC.ver-------------------------------
-            ? Column(
+        ? Column(
           children: [
             // --------------Header-----------------
             Container(
@@ -125,6 +125,8 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
                                       fifth = false;
                                     });
                                   },
+                                  color: first ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                  text: '전혀 아니에요',
                                 ),
                                 CheckCircular(
                                   checktap: () {
@@ -136,6 +138,8 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
                                       fifth = false;
                                     });
                                   },
+                                  color: second ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                  text: '아니에요',
                                 ),
                                 CheckCircular(
                                   checktap: () {
@@ -147,6 +151,8 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
                                       fifth = false;
                                     });
                                   },
+                                  color: third ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                  text: '보통',
                                 ),
                                 CheckCircular(
                                   checktap: () {
@@ -158,6 +164,8 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
                                       fifth = false;
                                     });
                                   },
+                                  color: fourth ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                  text: '그래요',
                                 ),
                                 CheckCircular(
                                   checktap: () {
@@ -169,6 +177,8 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
                                       fourth = false;
                                     });
                                   },
+                                  color: fifth ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                  text: '매우 그래요',
                                 ),
                               ],
                             ),
@@ -203,7 +213,148 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
           ],
         )
         // ----------------------------Mobile.ver-------------------------------
-            : Container()
+        : SafeArea(
+          child: Column(
+            children: [
+              // --------------Header-----------------
+              Container(
+                width: double.infinity,
+                height: 54,
+                color: GlobalStyle.background_gray,
+                child: Center(
+                  child: Text('탈모 MBTI',
+                    style: TextStyle(
+                        fontSize: 18.sp,
+                        color: GlobalStyle.dark
+                    ),
+                  ),
+                ),
+              ),
+              // --------------Contents----------------
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Column(
+                    children: [
+                      // 질문
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.only(top: 130.h),
+                          child: Column(
+                            children: [
+                              Text(contentsList[1], //질문
+                                style: TextStyle(
+                                    fontSize: 18.sp,
+                                    color: GlobalStyle.dark,
+                                    fontWeight: FontWeight.w600
+                                ),
+                              ),
+                              Container(height: 150.h,),
+                              //체크박스
+                              Container(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: [
+                                    CheckCircular(
+                                      checktap: () {
+                                        setState(() {
+                                          first = !first;
+                                          second = false;
+                                          third = false;
+                                          fourth = false;
+                                          fifth = false;
+                                        });
+                                      },
+                                      color: first ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                      text: '전혀 아니에요',
+                                    ),
+                                    CheckCircular(
+                                      checktap: () {
+                                        setState(() {
+                                          second = !second;
+                                          first = false;
+                                          third = false;
+                                          fourth = false;
+                                          fifth = false;
+                                        });
+                                      },
+                                      color: second ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                      text: '아니에요',
+                                    ),
+                                    CheckCircular(
+                                      checktap: () {
+                                        setState(() {
+                                          third = !third;
+                                          first = false;
+                                          second = false;
+                                          fourth = false;
+                                          fifth = false;
+                                        });
+                                      },
+                                      color: third ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                      text: '보통',
+                                    ),
+                                    CheckCircular(
+                                      checktap: () {
+                                        setState(() {
+                                          fourth = !fourth;
+                                          first = false;
+                                          second = false;
+                                          third = false;
+                                          fifth = false;
+                                        });
+                                      },
+                                      color: fourth ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                      text: '그래요',
+                                    ),
+                                    CheckCircular(
+                                      checktap: () {
+                                        setState(() {
+                                          fifth = !fifth;
+                                          first = false;
+                                          second = false;
+                                          third = false;
+                                          fourth = false;
+                                        });
+                                      },
+                                      color: fifth ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                      text: '매우 그래요',
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      // --------------다음/이전 페이지 버튼---------------
+                      GestureDetector(
+                        onTap: (){},
+                        child: Container(
+                          margin: EdgeInsets.only(bottom: 110.h,),
+                          width: 100.w,
+                          height: 40.h,
+                          decoration: BoxDecoration(
+                              color: first || second || third || fourth || fifth ? GlobalStyle.green : GlobalStyle.gray,
+                              borderRadius: BorderRadius.circular(3.r)
+                          ),
+                          child: Center(
+                            child: Text('다음',
+                              style: TextStyle(
+                                  color: GlobalStyle.white,
+                                  fontSize: 14.sp
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        )
     );
   }
 }

@@ -52,7 +52,7 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
         backgroundColor: GlobalStyle.white,
         body: Get.width > 414
         // ----------------------------PC.ver-------------------------------
-            ? Column(
+        ? Column(
           children: [
             // --------------Header-----------------
             Container(
@@ -102,72 +102,70 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Text('전혀 아니다',
-                                  style: TextStyle(
-                                    color: GlobalStyle.light_purple,
-                                    fontSize: 3.5.sp,
-                                  ),
+                                CheckCircular(
+                                  checktap: () {
+                                    setState(() {
+                                      first = !first;
+                                      second = false;
+                                      third = false;
+                                      fourth = false;
+                                      fifth = false;
+                                    });
+                                  },
+                                  color: first ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                  text: '전혀 아니에요',
                                 ),
                                 CheckCircular(
-                                    checktap: () {
-                                      setState(() {
-                                        first = !first;
-                                        second = false;
-                                        third = false;
-                                        fourth = false;
-                                        fifth = false;
-                                      });
-                                    },
-                                    color: GlobalStyle.light_purple, checkingColor: first ? GlobalStyle.light_purple : GlobalStyle.transparent, size: 28.h),
+                                  checktap: () {
+                                    setState(() {
+                                      second = !second;
+                                      first = false;
+                                      third = false;
+                                      fourth = false;
+                                      fifth = false;
+                                    });
+                                  },
+                                  color: second ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                  text: '아니에요',
+                                ),
                                 CheckCircular(
-                                    checktap: () {
-                                      setState(() {
-                                        second = !second;
-                                        first = false;
-                                        third = false;
-                                        fourth = false;
-                                        fifth = false;
-                                      });
-                                    },
-                                    color: GlobalStyle.light_purple, checkingColor: second ? GlobalStyle.light_purple : GlobalStyle.transparent, size: 24.h),
+                                  checktap: () {
+                                    setState(() {
+                                      third = !third;
+                                      first = false;
+                                      second = false;
+                                      fourth = false;
+                                      fifth = false;
+                                    });
+                                  },
+                                  color: third ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                  text: '보통',
+                                ),
                                 CheckCircular(
-                                    checktap: () {
-                                      setState(() {
-                                        third = !third;
-                                        first = false;
-                                        second = false;
-                                        fourth = false;
-                                        fifth = false;
-                                      });
-                                    },
-                                    color: GlobalStyle.gray, checkingColor: third ? GlobalStyle.gray : GlobalStyle.transparent, size: 20.h),
+                                  checktap: () {
+                                    setState(() {
+                                      fourth = !fourth;
+                                      first = false;
+                                      second = false;
+                                      third = false;
+                                      fifth = false;
+                                    });
+                                  },
+                                  color: fourth ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                  text: '그래요',
+                                ),
                                 CheckCircular(
-                                    checktap: () {
-                                      setState(() {
-                                        fourth = !fourth;
-                                        first = false;
-                                        second = false;
-                                        third = false;
-                                        fifth = false;
-                                      });
-                                    },
-                                    color: GlobalStyle.green, checkingColor: fourth ? GlobalStyle.green : GlobalStyle.transparent, size: 24.h),
-                                CheckCircular(
-                                    checktap: () {
-                                      setState(() {
-                                        fifth = !fifth;
-                                        first = false;
-                                        second = false;
-                                        third = false;
-                                        fourth = false;
-                                      });
-                                    },
-                                    color: GlobalStyle.green, checkingColor: fifth ? GlobalStyle.green : GlobalStyle.transparent, size: 28.h),
-                                Text('매우 그렇다',
-                                  style: TextStyle(
-                                    color: GlobalStyle.green,
-                                    fontSize:3.5.sp,
-                                  ),
+                                  checktap: () {
+                                    setState(() {
+                                      fifth = !fifth;
+                                      first = false;
+                                      second = false;
+                                      third = false;
+                                      fourth = false;
+                                    });
+                                  },
+                                  color: fifth ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                  text: '매우 그래요',
                                 ),
                               ],
                             ),
@@ -202,7 +200,7 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
           ],
         )
         // ----------------------------Mobile.ver-------------------------------
-            : SafeArea(
+        : SafeArea(
           child: Column(
             children: [
               // --------------Header-----------------
@@ -246,67 +244,77 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
                                     color: GlobalStyle.dark
                                 ),
                               ),
-                              Container(height: 120.h,),
+                              Container(height: 150.h,),
                               //체크박스
                               Container(
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
                                     CheckCircular(
-                                        checktap: () {
-                                          setState(() {
-                                            first = !first;
-                                            second = false;
-                                            third = false;
-                                            fourth = false;
-                                            fifth = false;
-                                          });
-                                        },
-                                        color: GlobalStyle.light_purple, checkingColor: first ? GlobalStyle.light_purple : GlobalStyle.transparent, size: 30.h),
+                                      checktap: () {
+                                        setState(() {
+                                          first = !first;
+                                          second = false;
+                                          third = false;
+                                          fourth = false;
+                                          fifth = false;
+                                        });
+                                      },
+                                      color: first ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                      text: '전혀 아니에요',
+                                    ),
                                     CheckCircular(
-                                        checktap: () {
-                                          setState(() {
-                                            second = !second;
-                                            first = false;
-                                            third = false;
-                                            fourth = false;
-                                            fifth = false;
-                                          });
-                                        },
-                                        color: GlobalStyle.light_purple, checkingColor: second ? GlobalStyle.light_purple : GlobalStyle.transparent, size: 30.h),
+                                      checktap: () {
+                                        setState(() {
+                                          second = !second;
+                                          first = false;
+                                          third = false;
+                                          fourth = false;
+                                          fifth = false;
+                                        });
+                                      },
+                                      color: second ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                      text: '아니에요',
+                                    ),
                                     CheckCircular(
-                                        checktap: () {
-                                          setState(() {
-                                            third = !third;
-                                            first = false;
-                                            second = false;
-                                            fourth = false;
-                                            fifth = false;
-                                          });
-                                        },
-                                        color: GlobalStyle.gray, checkingColor: third ? GlobalStyle.gray : GlobalStyle.transparent, size: 30.h),
+                                      checktap: () {
+                                        setState(() {
+                                          third = !third;
+                                          first = false;
+                                          second = false;
+                                          fourth = false;
+                                          fifth = false;
+                                        });
+                                      },
+                                      color: third ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                      text: '보통',
+                                    ),
                                     CheckCircular(
-                                        checktap: () {
-                                          setState(() {
-                                            fourth = !fourth;
-                                            first = false;
-                                            second = false;
-                                            third = false;
-                                            fifth = false;
-                                          });
-                                        },
-                                        color: GlobalStyle.green, checkingColor: fourth ? GlobalStyle.green : GlobalStyle.transparent, size: 30.h),
+                                      checktap: () {
+                                        setState(() {
+                                          fourth = !fourth;
+                                          first = false;
+                                          second = false;
+                                          third = false;
+                                          fifth = false;
+                                        });
+                                      },
+                                      color: fourth ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                      text: '그래요',
+                                    ),
                                     CheckCircular(
-                                        checktap: () {
-                                          setState(() {
-                                            fifth = !fifth;
-                                            first = false;
-                                            second = false;
-                                            third = false;
-                                            fourth = false;
-                                          });
-                                        },
-                                        color: GlobalStyle.green, checkingColor: fifth ? GlobalStyle.green : GlobalStyle.transparent, size: 30.h),
+                                      checktap: () {
+                                        setState(() {
+                                          fifth = !fifth;
+                                          first = false;
+                                          second = false;
+                                          third = false;
+                                          fourth = false;
+                                        });
+                                      },
+                                      color: fifth ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                                      text: '매우 그래요',
+                                    ),
                                   ],
                                 ),
                               )
@@ -351,12 +359,14 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
 //--------체크박스 위젯----------
 class CheckCircular extends StatefulWidget {
   final GestureTapCallback checktap;
-  final Color checkingColor;
+  final Color color;
+  final String text;
 
   const CheckCircular({
     super.key,
     required this.checktap,
-    required this.checkingColor,
+    required this.color,
+    required this.text,
   });
 
   @override
@@ -366,27 +376,30 @@ class CheckCircular extends StatefulWidget {
 class _CheckCircularState extends State<CheckCircular> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: widget.checktap,
-      child: Container(
-        width: 15.ㅈ,
-        height: widget.size,
-        decoration: BoxDecoration(
-            border: Border.all(
-              color: widget.color,
-              width: 2.h,
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: widget.checktap,
+          child: Container(
+            width: Get.width > 414 ? 13.w : 56.w,
+            height: Get.width > 414 ? 13.w : 56.w,
+            decoration: BoxDecoration(
+                border: Border.all(
+                  color: widget.color,
+                  width: 16.h,
+                ),
+                borderRadius: BorderRadius.circular(100.r)
             ),
-            borderRadius: BorderRadius.circular(100.r)
-        ),
-        child: Container(
-          margin: EdgeInsets.all(4.h),
-          decoration: BoxDecoration(
-              color: widget.checkingColor,
-              // color: first ? GlobalStyle.light_purple : GlobalStyle.transparent,
-              borderRadius: BorderRadius.circular(100.r)
           ),
         ),
-      ),
+        Container(height: 12.h,),
+        Text(widget.text,
+          style: TextStyle(
+            color: GlobalStyle.gray,
+            fontSize: Get.width > 414 ? 2.5.sp : 11.sp
+          ),
+        )
+      ],
     );
   }
 }
