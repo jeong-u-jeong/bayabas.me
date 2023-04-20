@@ -56,16 +56,16 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
           children: [
             // --------------Header-----------------
             Container(
-              height: 160.h,
+              height: 200,
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: GlobalStyle.background_gray,
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   '내 두피상태 진단',
                   style: TextStyle(
-                      fontSize: 4.sp,
+                      fontSize: 24,
                       color: GlobalStyle.dark
                   ),
                 ),
@@ -79,24 +79,24 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
                   children: [
                     // 질문
                     Container(
-                      width: 160.w,
+                      width: 1024,
                       child: Column(
                         children: [
-                          Text(contentsList[1], //질문
-                            style: TextStyle(
-                                fontSize: 4.sp,
+                          Text(contentsList[0], //질문
+                            style: const TextStyle(
+                                fontSize: 22,
                                 color: GlobalStyle.dark,
                                 fontWeight: FontWeight.w600
                             ),
                           ),
-                          Container(height: 10.h,),
-                          Text(subContentsList[1],//서브 질문
-                            style: TextStyle(
-                                fontSize: 4.sp,
+                          Container(height: 20,),
+                          Text(subContentsList[0],//서브 질문
+                            style: const TextStyle(
+                                fontSize: 22,
                                 color: GlobalStyle.dark
                             ),
                           ),
-                          Container(height: 68.h,),
+                          Container(height: 130,),
                           //체크박스
                           Container(
                             child: Row(
@@ -177,18 +177,18 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
                     GestureDetector(
                       onTap: (){},
                       child: Container(
-                        margin: EdgeInsets.only(top: 120.h,),
-                        width: 38.w,
-                        height: 40.h,
+                        margin: const EdgeInsets.only(top: 220,),
+                        width: 200,
+                        height: 60,
                         decoration: BoxDecoration(
                             color: first || second || third || fourth || fifth ? GlobalStyle.green : GlobalStyle.gray,
-                            borderRadius: BorderRadius.circular(5.r)
+                            borderRadius: BorderRadius.circular(5)
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Text('다음',
                             style: TextStyle(
                                 color: GlobalStyle.white,
-                                fontSize: 3.sp
+                                fontSize: 18
                             ),
                           ),
                         ),
@@ -380,22 +380,22 @@ class _CheckCircularState extends State<CheckCircular> {
         GestureDetector(
           onTap: widget.checktap,
           child: Container(
-            width: Get.width > 414 ? 13.w : 52.w,
-            height: Get.width > 414 ? 13.w : 52.w,
+            width: Get.width > 414 ? 70 : 52.w,
+            height: Get.width > 414 ? 70 : 52.w,
             decoration: BoxDecoration(
                 border: Border.all(
                   color: widget.color,
-                  width: Get.width > 414 ? 9.5.w : 15.w,
+                  width: Get.width > 414 ? 18 : 15.w,
                 ),
                 borderRadius: BorderRadius.circular(100.r)
             ),
           ),
         ),
-        Container(height: 12.h,),
+        Container(height: Get.width > 414 ? 12 : 12.h,),
         Text(widget.text,
           style: TextStyle(
             color: GlobalStyle.gray,
-            fontSize: Get.width > 414 ? 2.5.sp : 11.sp
+            fontSize: Get.width > 414 ? 16 : 11.sp
           ),
         )
       ],

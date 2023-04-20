@@ -76,16 +76,16 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
           children: [
             // --------------Header-----------------
             Container(
-              height: 160.h,
+              height: 200,
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: GlobalStyle.background_gray,
               ),
-              child: Center(
+              child: const Center(
                 child: Text(
                   '탈모 MBTI',
                   style: TextStyle(
-                      fontSize: 4.sp,
+                      fontSize: 24,
                       color: GlobalStyle.dark
                   ),
                 ),
@@ -99,17 +99,17 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
                   children: [
                     //질문
                     Container(
-                      width: 160.w,
+                      width: 1024,
                       child: Column(
                         children: [
-                          Text(contentsList[1], //질문
-                            style: TextStyle(
-                                fontSize: 4.sp,
+                          Text(contentsList[0], //질문
+                            style: const TextStyle(
+                                fontSize: 22,
                                 color: GlobalStyle.dark,
                                 fontWeight: FontWeight.w600
                             ),
                           ),
-                          Container(height: 68.h,),
+                          Container(height: 150,),
                           //체크박스
                           Container(
                             child: Row(
@@ -190,18 +190,18 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
                     GestureDetector(
                       onTap: (){},
                       child: Container(
-                        margin: EdgeInsets.only(top: 120.h,),
-                        width: 38.w,
-                        height: 40.h,
+                        margin: const EdgeInsets.only(top: 220,),
+                        width: 200,
+                        height: 60,
                         decoration: BoxDecoration(
                             color: first || second || third || fourth || fifth ? GlobalStyle.green : GlobalStyle.gray,
-                            borderRadius: BorderRadius.circular(5.r)
+                            borderRadius: BorderRadius.circular(5)
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Text('다음',
                             style: TextStyle(
                                 color: GlobalStyle.white,
-                                fontSize: 3.sp
+                                fontSize: 18
                             ),
                           ),
                         ),
@@ -331,7 +331,7 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
                       GestureDetector(
                         onTap: (){},
                         child: Container(
-                          margin: const EdgeInsets.only(bottom: 90),
+                          margin: const EdgeInsets.only(top: 220,),
                           width: 100.w,
                           height: 40.h,
                           decoration: BoxDecoration(

@@ -18,133 +18,128 @@ class _DiagnosisAreaState extends State<DiagnosisArea> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: GlobalStyle.white,
       body: Get.width > 414
-      ? SingleChildScrollView(
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                height: 160.h,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: GlobalStyle.background_gray,
+      ? Column(
+        children: [
+          Container(
+            height: 200,
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              color: GlobalStyle.background_gray,
+            ),
+            child: const Center(
+              child: Text(
+                '두피 면적 테스트',
+                style: TextStyle(
+                    fontSize: 24,
+                    color: GlobalStyle.dark
                 ),
-                child: Center(
-                  child: Text(
-                    '두피 면적 테스트',
-                    style: TextStyle(
-                        fontSize: 4.sp,
-                        color: GlobalStyle.dark
+              ),
+            ),
+          ),
+         Expanded(
+           child: Column(
+             mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+             Container(
+               width: 1024,
+               child: Column(
+                 children: [
+                     const Text('정확한 두피 면적 계산을 위해 성별을 입력해 주세요.', style: TextStyle(
+                     fontSize: 22,
+                     fontWeight: FontWeight.bold,
+                   ),),
+                   Container(height: 20),
+                    const Text('바야바즈 두피면적 진단은 성별과 나이대를 토대로 면적이 계산되요.', style: TextStyle(
+                      fontSize: 22
+                    ),),
+                  ],
+                ),
+             ),
+              Container(
+                height: 130,
+              ),
+              Column(
+                children: [
+                  GestureDetector(
+                    onTap:  () {
+                      setState(() {
+                        male=!male;
+                        female=false;
+                      });
+                    },
+                    child: Container(
+                      width: 500,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        color: male ? GlobalStyle.green :GlobalStyle.white,
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(
+                          color: GlobalStyle.light_gray.withOpacity(0.1),
+                        ),
+                      ),
+                      child: Center(
+                          child: Text('남자', style: TextStyle(
+                            fontSize: 22,
+                            color: male ? GlobalStyle.white : GlobalStyle.light_gray,
+                          ),)
+                      ),
+                    ),
+                  ),
+                  Container(height: 20,),
+                  GestureDetector(
+                    onTap:  () {
+                      setState(() {
+                        female=!female;
+                        male=false;
+                      });
+                    },
+                    child: Container(
+                      width: 500,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        color: female ? GlobalStyle.green :GlobalStyle.white,
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(
+                          color: GlobalStyle.light_gray.withOpacity(0.1),
+                        ),
+                      ),
+                      child: Center(
+                          child: Text('여자', style: TextStyle(
+                            fontSize: 22,
+                            color: female ? GlobalStyle.white : GlobalStyle.light_gray,
+                          ),)
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  margin: const EdgeInsets.only(top: 220,),
+                  width: 200,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      color: male || female ? GlobalStyle.green : GlobalStyle.gray,
+                      borderRadius: BorderRadius.circular(5)
+                  ),
+                  child: const Center(
+                    child: Text('다음',
+                      style: TextStyle(
+                          color: GlobalStyle.white,
+                          fontSize: 18
+                      ),
                     ),
                   ),
                 ),
               ),
-              Container(height: 30.w,),
-             Column(
-              children: [
-               Center(
-                 child: Column(
-                   children: [
-                       Text('정확한 두피 면적 계산을 위해 성별을 입력해 주세요.', style: TextStyle(
-                       fontSize: 4.sp,
-                       fontWeight: FontWeight.bold,
-                     ),),
-                     Container(height: 10.h,),
-                      Text('바야바즈 두피면적 진단은 성별과 나이대를 토대로 면적이 계산되요.', style: TextStyle(
-                        fontSize: 4.sp,
-                      ),),
-                    ],
-                  ),
-                ),
-                Container(
-                  width: 100.w,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(height: 30.h,),
-                      GestureDetector(
-                        onTap:  () {
-                          setState(() {
-                            male=!male;
-                            female=false;
-                          });
-                        },
-                        child: Container(
-                          width: double.infinity,
-                          height: 50.h,
-                          decoration: BoxDecoration(
-                            color: male ? GlobalStyle.green :GlobalStyle.white,
-                            borderRadius: BorderRadius.circular(8.r),
-                            border: Border.all(
-                              color: GlobalStyle.light_gray.withOpacity(0.1),
-                            ),
-                          ),
-                          child: Center(
-                              child: Text('남자', style: TextStyle(
-                                fontSize: 4.sp,
-                                color: male ? GlobalStyle.white : GlobalStyle.light_gray,
-                              ),)
-                          ),
-                        ),
-                      ),
-                      Container(height: 15.h,),
-                      GestureDetector(
-                        onTap:  () {
-                          setState(() {
-                            female=!female;
-                            male=false;
-                          });
-                        },
-                        child: Container(
-                          width: double.infinity,
-                          height: 50.h,
-                          decoration: BoxDecoration(
-                            color: female ? GlobalStyle.green :GlobalStyle.white,
-                            borderRadius: BorderRadius.circular(8.r),
-                            border: Border.all(
-                              color: GlobalStyle.light_gray.withOpacity(0.1),
-                            ),
-                          ),
-                          child: Center(
-                              child: Text('여자', style: TextStyle(
-                                fontSize: 4.sp,
-                                color: female ? GlobalStyle.white : GlobalStyle.light_gray,
-                              ),)
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-
-                        },
-                        child: Container(
-                          margin: EdgeInsets.only(top: 120.h,),
-                          width: 38.w,
-                          height: 40.h,
-                          decoration: BoxDecoration(
-                              color: male || female ? GlobalStyle.green : GlobalStyle.gray,
-                              borderRadius: BorderRadius.circular(5.r)
-                          ),
-                          child: Center(
-                            child: Text('다음',
-                              style: TextStyle(
-                                  color: GlobalStyle.white,
-                                  fontSize: 4.sp
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                 ),
-                ],
-               ),
               ],
-            ),
-          ),
-      )
+             ),
+         ),
+          ],
+        )
       :
       SafeArea(
           child: Column(
