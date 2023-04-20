@@ -22,7 +22,7 @@ class _StepTwoState extends State<StepTwo> {
         child: Center(
           child: Column(
             children: [
-              Container(height: 90.h,),
+              Container(height: 100,),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -38,7 +38,7 @@ class _StepTwoState extends State<StepTwo> {
                     img: 'images/default_diagnosis.png'
                 ),
               ),
-              Container(height: 70.h,),
+              Container(height: 70,),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -54,7 +54,7 @@ class _StepTwoState extends State<StepTwo> {
                     img: 'images/mbti_diagnosis.png'
                 ),
               ),
-              Container(height: 70.h,),
+              Container(height: 70,),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -70,7 +70,7 @@ class _StepTwoState extends State<StepTwo> {
                     img: 'images/AI_diagnosis.png'
                 ),
               ),
-              Container(height: 90.h,),
+              Container(height: 90,),
             ],
           ),
 
@@ -81,7 +81,7 @@ class _StepTwoState extends State<StepTwo> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: GlobalStyle.transparent,
-          leading: Icon(Icons.arrow_back_ios_new_rounded, color: GlobalStyle.gray,),
+          // leading: Icon(Icons.arrow_back_ios_new_rounded, color: GlobalStyle.gray,),
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 25.w),
@@ -166,24 +166,24 @@ class Contents extends StatelessWidget {
           children: [
             Text(title,
               style: TextStyle(
-                fontSize: 6.sp,
+                fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: GlobalStyle.light_black,
               ),
             ),
             Text(subtitle,
               style: TextStyle(
-                fontSize: 5.sp,
+                fontSize: 16,
                 color: GlobalStyle.light_gray,
                 fontWeight: FontWeight.w100,
               ),
             ),
-            Container(height: 25.h,),
+            Container(height: 25,),
             Container(
-              padding: EdgeInsets.fromLTRB(20.w, 35.h, 0, 60.h),
-              width: 260.w,
+              padding: EdgeInsets.fromLTRB(50, 35, 10, 60),
+              width: 850,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.r),
+                  borderRadius: BorderRadius.circular(30),
                   color: GlobalStyle.white,
                   boxShadow: [
                     BoxShadow(
@@ -201,23 +201,23 @@ class Contents extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(width: 20.w, height: 4.5.h, color: GlobalStyle.light_purple, margin: EdgeInsets.only(bottom: 15.h),),
+                        Container(width: 60, height: 5, color: GlobalStyle.light_purple, margin: EdgeInsets.only(bottom: 15),),
                         Text(txt, style: TextStyle(
-                          fontSize: 6.sp,
+                          fontSize: 18,
                           color: GlobalStyle.light_black,
                           fontWeight: FontWeight.w500,
                          ),
                         ),
-                        Container(height: 10.h,),
+                        Container(height: 10,),
                         Text(subtxt, style: TextStyle(
-                          fontSize: 5.sp,
+                          fontSize: 16,
                           color: GlobalStyle.light_black,
                           fontWeight: FontWeight.w100,
                          ),
                         ),
-                        Container(height: 10.h,),
+                        Container(height: 10,),
                         Text(endtxt, style: TextStyle(
-                          fontSize: 5.sp,
+                          fontSize: 15,
                           color: GlobalStyle.light_black,
                           fontWeight: FontWeight.w100,
                          ),
@@ -231,7 +231,7 @@ class Contents extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset(img, width: 90.w, height: 90.h,)
+                          Image.asset(img, width: 90, height: 90,)
                         ],
                       ),
                     ),
