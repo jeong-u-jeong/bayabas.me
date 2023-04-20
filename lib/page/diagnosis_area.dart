@@ -118,7 +118,7 @@ class _DiagnosisAreaState extends State<DiagnosisArea> {
               GestureDetector(
                 onTap: () {},
                 child: Container(
-                  margin: const EdgeInsets.only(top: 220, bottom: 100,),
+                  margin: const EdgeInsets.only(top: 220, bottom: 150,),
                   width: 200,
                   height: 60,
                   decoration: BoxDecoration(
