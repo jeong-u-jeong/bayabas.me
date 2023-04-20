@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class GlobalStyle {
   static const Color light_black = Color(0xff020202);
   static const Color light_purple = Color(0xff8c81f8);
+  static const Color light_yellow = Color(0xfffffabb);
   static const Color light_gray = Color(0xff212b39);
   static const Color transparent = Color(0xff00000000);
   static const Color white = Color(0xffffffff);

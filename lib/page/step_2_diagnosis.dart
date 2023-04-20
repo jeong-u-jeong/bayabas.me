@@ -4,6 +4,7 @@ import 'package:diagnosis/page/diagnosis_condition.dart';
 import 'package:diagnosis/page/diagnosis_mbti.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StepTwo extends StatefulWidget {
   const StepTwo({Key? key}) : super(key: key);
@@ -81,8 +82,66 @@ class _StepTwoState extends State<StepTwo> {
         ),
       )
       :
-      Container(
-        child: Text('이페이지 테스트'),
+      Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: GlobalStyle.transparent,
+          leading: Icon(Icons.arrow_back_ios_new_rounded, color: GlobalStyle.gray,),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Image.asset('images/pin.png', width: 25.w, height: 25.h,),
+                  Text('바야바즈 진단 테스트',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.sp,
+                    ),
+                  ),
+                ],
+              ),
+              Container(height: 30.h,),
+              GestureDetector(
+                onTap: () {
+
+                },
+                child: TapContents(
+                    img: 'images/default_diagnosis.png',
+                    title: '내 두피상태 진단',
+                    subtitle: '문진을 통해 유전적 요인, 생활 습관, 스트레스, 두피 타입 등을 파악하여 지금 두피의 상태가 어떤지 알아볼 수 있어요.'
+                ),
+              ),
+              Container(height: 25.h,),
+              GestureDetector(
+                onTap: () {
+
+                },
+                child: TapContents(
+                    img: 'images/mbti_diagnosis.png',
+                    title: '탈모 MBTI',
+                    subtitle: '내 두피는 어떤 성격을 가지고 있을까요? 간단한 진단을 통해 확인해 보세요.'
+                ),
+              ),
+              Container(height: 25.h,),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DiagnosisArea()),
+                  );
+                },
+                child: TapContents(
+                    img: 'images/AI_diagnosis.png',
+                    title: '바야바즈 두피 면적 진단',
+                    subtitle: '정수리 사진을 통해 바야바즈가 두피의 면적을 파악해줘요. 간편하고 쉽게 진단할 수 있어요.'
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
 
     );
@@ -186,6 +245,73 @@ class Contents extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+}
+
+
+
+class TapContents extends StatelessWidget {
+  const TapContents({Key? key, required this.img, required this.title, required this.subtitle}) : super(key: key);
+
+  final img;
+  final String title, subtitle;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 20.w),
+      width: double.infinity,
+      // height: 150.h,
+      decoration: BoxDecoration(
+        color: GlobalStyle.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [BoxShadow(
+          color: GlobalStyle.gray,
+          offset: Offset(0,1),
+          blurRadius: 1.0,
+        )],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Flexible(
+              flex: 2,
+              child: Image.asset(img, width: 60.w,)
+          ),
+          Flexible(
+            flex: 9,
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(20.w, 0, 10.w, 0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.sp,
+                    ),
+                  ),
+                  Container(height: 7.h,),
+                  Text(subtitle,
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Flexible(
+            flex: 1,
+            child: Center(
+              child: Icon(Icons.arrow_forward_rounded, size: 20.sp, color: GlobalStyle.green,),
+            ),
+          ),
+
+        ],
+      ),
     );
   }
 }

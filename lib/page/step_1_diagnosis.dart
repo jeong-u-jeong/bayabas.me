@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:diagnosis/global_assets/global_style.dart';
 import 'package:flutter/material.dart';
 import 'package:diagnosis/page/step_2_diagnosis.dart';
@@ -26,54 +28,54 @@ class StepOne extends StatelessWidget {
                     Text(
                       '바야바즈!',
                       style: TextStyle(
-                        fontSize: 38,
+                        fontSize: 10.sp,
                         color: GlobalStyle.light_black,
                       ),
                     ),
                     Text(
                       '내 두피 상태를 알려줘!',
                       style: TextStyle(
-                        fontSize: 38,
+                        fontSize: 10.sp,
                         fontWeight: FontWeight.bold,
                         color: GlobalStyle.light_black,
                       ),
                     ),
                     Container(
-                      height: 40,
+                      height: 40.h,
                     ),
                     Text(
                       '바야바즈가 제공하는 두피 진단은',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 6.sp,
                         color: GlobalStyle.light_black,
                       ),
                     ),
                     Text(
                       '유전적 요인, 생활 패턴, 스트레스, 두피 타입 등을',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 6.sp,
                         color: GlobalStyle.light_black,
                       ),
                     ),
                     Text(
                       '파악하여 현재 두피의 상태와 건강을 진단해요.',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 6.sp,
                         color: GlobalStyle.light_black,
                       ),
                     ),
                     Container(
-                      height: 25,
+                      height: 30.h,
                     ),
                     Text(
                       '두피 질병 및 질환은 의료기관을 방문 해 주세요.',
                       style: TextStyle(
-                        fontSize: 17,
+                        fontSize: 5.sp,
                         color: GlobalStyle.intro_txt_gray,
                       ),
                     ),
                     Container(
-                      height: 30,
+                      height: 30.h,
                     ),
                     GestureDetector(
                       onTap: () {
@@ -83,8 +85,8 @@ class StepOne extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        width: mediaWidth(context, 0.3),
-                        height: mediaHeight(context, 0.07),
+                        width: 120.w,
+                        height: 55.h,
                         decoration: BoxDecoration(
                             color: GlobalStyle.white,
                             border: Border.all(
@@ -109,55 +111,138 @@ class StepOne extends StatelessWidget {
           : Center(
             child: Column(
               children: [
-                Container(height: 100.h,),
-                Stack(
+                Container(height: 80.h,),
+                Column(
                   children: [
-                    Text('바야바즈!',
-                      style: TextStyle(
-                        fontSize: 40.sp,
-                      ),
-                    ),
-                    Text('내 두피 상태를 알려줘!',
+                    Text('바야바즈 !',
                       style: TextStyle(
                         fontSize: 25.sp,
+                      ),
+                    ),
+                    Text('내 두피 상태를 알려줘 !',
+                      style: TextStyle(
+                        fontSize: 27.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                Container(height: 40.h,),
+                Stack(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 30.w),
+                        child: Image.asset('images/bayabas.png', width: 90.w,)
+                    ),
+                    Positioned(
+                      top: 60,
+                      left: 90,
+                      child: Transform.rotate(
+                        angle: 6.6,
+                        child: Icon(Icons.search_rounded,
+                          color: GlobalStyle.light_gray,
+                          size: 60.sp,
+                        ),
                       ),
                     ),
                   ],
                 ),
                 Container(height: 50.h,),
-                Image.asset('images/bayabas.png', width: 90.w,),
-                Container(height: 50.h,),
-                Text('바야바즈가 제공하는 두피 진단은',
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    color: GlobalStyle.light_gray,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 30.w),
+                  child: Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 25.w),
+                    decoration: BoxDecoration(
+                      color: GlobalStyle.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [BoxShadow(
+                        color: GlobalStyle.gray,
+                        offset: Offset(0,1),
+                        blurRadius: 1.0,
+                      )],
+                    ),
+                    child: Column(
+                      // crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('바야바즈가 제공하는 두피 진단은',
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: GlobalStyle.light_gray,
+                          ),
+                        ),
+                        Text('유전적 요인과 생활 패턴, 스트레스와',
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: GlobalStyle.light_gray,
+                          ),
+                        ),
+                        Text('두피 타입 등을 파악하여',
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: GlobalStyle.light_gray,
+                          ),
+                        ),
+                        Text('현재 두피의 상태와 건강을 진단해요!',
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: GlobalStyle.light_gray,
+                          ),
+                        ),
+                        Container(height: 30.h,),
+                        Text('두피 질병 및 질환은',
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: GlobalStyle.light_gray,
+                          ),
+                        ),
+                        Text('의료기관을 방문 해 주세요',
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: GlobalStyle.light_gray,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Text('유전적 요인, 생활 패턴, 스트레스, 두피 타입 등을',
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    color: GlobalStyle.light_gray,
-                  ),
-                ),
-                Text('파악하여 현재 두피의 상태와 건강을 진단해요!',
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    color: GlobalStyle.light_gray,
-                  ),
-                ),
-                Container(height: 50.h,),
-                Text('두피 질병 및 질환은',
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    color: GlobalStyle.light_gray,
-                  ),
-                ),
-                Text('의료기관을 방문 해 주세요',
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    color: GlobalStyle.light_gray,
-                  ),
-                ),
+                // Text('바야바즈가',
+                //   style: TextStyle(
+                //     fontSize: 18.sp,
+                //     color: GlobalStyle.light_gray,
+                //   ),
+                // ),
+                // Text('제공하는 두피 진단은 유전적 요인과',
+                //   style: TextStyle(
+                //     fontSize: 18.sp,
+                //     color: GlobalStyle.light_gray,
+                //   ),
+                // ),
+                // Text('생활 패턴, 스트레스와 두피 타입 등을 파악해',
+                //   style: TextStyle(
+                //     fontSize: 18.sp,
+                //     color: GlobalStyle.light_gray,
+                //   ),
+                // ),
+                // Text('현재 두피의 상태와 건강을 진단해요!',
+                //   style: TextStyle(
+                //     fontSize: 18.sp,
+                //     color: GlobalStyle.light_gray,
+                //   ),
+                // ),
+                // Container(height: 50.h,),
+                // Text('두피 질병 및 질환은',
+                //   style: TextStyle(
+                //     fontSize: 16.sp,
+                //     color: GlobalStyle.light_gray,
+                //   ),
+                // ),
+                // Text('의료기관을 방문 해 주세요',
+                //   style: TextStyle(
+                //     fontSize: 16.sp,
+                //     color: GlobalStyle.light_gray,
+                //   ),
+                // ),
                 Container(height: 70.h,),
                 GestureDetector(
                   onTap: () {
@@ -168,7 +253,7 @@ class StepOne extends StatelessWidget {
                   },
                   child: Container(
                     width: 200.w,
-                    height: 50.h,
+                    height: 55.h,
                     decoration: BoxDecoration(
                       color: GlobalStyle.green,
                       borderRadius: BorderRadius.circular(8),
