@@ -20,29 +20,29 @@ class _DiagnosisAreaState extends State<DiagnosisArea> {
     return Scaffold(
       backgroundColor: GlobalStyle.white,
       body: Get.width > 414
-      ? Column(
-        children: [
-          Container(
-            height: 200,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              color: GlobalStyle.background_gray,
-            ),
-            child: const Center(
-              child: Text(
-                '두피 면적 테스트',
-                style: TextStyle(
-                    fontSize: 24,
-                    color: GlobalStyle.dark
+      ? SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 200,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: GlobalStyle.background_gray,
+              ),
+              child: const Center(
+                child: Text(
+                  '두피 면적 테스트',
+                  style: TextStyle(
+                      fontSize: 24,
+                      color: GlobalStyle.dark
+                  ),
                 ),
               ),
             ),
-          ),
-         Expanded(
-           child: Column(
-             mainAxisAlignment: MainAxisAlignment.center,
+           Column(
             children: [
              Container(
+               margin: const EdgeInsets.only(top: 150),
                width: 1024,
                child: Column(
                  children: [
@@ -137,9 +137,9 @@ class _DiagnosisAreaState extends State<DiagnosisArea> {
               ),
               ],
              ),
-         ),
-          ],
-        )
+            ],
+          ),
+      )
       :
       SafeArea(
           child: Column(

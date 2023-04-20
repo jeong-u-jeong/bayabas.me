@@ -52,152 +52,149 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
         backgroundColor: GlobalStyle.white,
         body: Get.width > 414
         // ----------------------------PC.ver-------------------------------
-        ? Column(
-          children: [
-            // --------------Header-----------------
-            Container(
-              height: 200,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                color: GlobalStyle.background_gray,
-              ),
-              child: const Center(
-                child: Text(
-                  '내 두피상태 진단',
-                  style: TextStyle(
-                      fontSize: 24,
-                      color: GlobalStyle.dark
+        ? SingleChildScrollView(
+          child: Column(
+            children: [
+              // --------------Header-----------------
+              Container(
+                height: 200,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  color: GlobalStyle.background_gray,
+                ),
+                child: const Center(
+                  child: Text(
+                    '내 두피상태 진단',
+                    style: TextStyle(
+                        fontSize: 24,
+                        color: GlobalStyle.dark
+                    ),
                   ),
                 ),
               ),
-            ),
-            // --------------Contents----------------
-            Expanded(
-                child:
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // 질문
-                    Container(
-                      width: 1024,
-                      child: Column(
-                        children: [
-                          Text(contentsList[0], //질문
-                            style: const TextStyle(
-                                fontSize: 22,
-                                color: GlobalStyle.dark,
-                                fontWeight: FontWeight.w600
-                            ),
+              // --------------Contents----------------
+              Column(
+                children: [
+                  // 질문
+                  Container(
+                    margin: const EdgeInsets.only(top: 150),
+                    width: 1024,
+                    child: Column(
+                      children: [
+                        Text(contentsList[0], //질문
+                          style: const TextStyle(
+                              fontSize: 22,
+                              color: GlobalStyle.dark,
+                              fontWeight: FontWeight.w600
                           ),
-                          Container(height: 20,),
-                          Text(subContentsList[0],//서브 질문
-                            style: const TextStyle(
-                                fontSize: 22,
-                                color: GlobalStyle.dark
-                            ),
-                          ),
-                          Container(height: 130,),
-                          //체크박스
-                          Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                CheckCircular(
-                                  checktap: () {
-                                    setState(() {
-                                      first = !first;
-                                      second = false;
-                                      third = false;
-                                      fourth = false;
-                                      fifth = false;
-                                    });
-                                  },
-                                  color: first ? GlobalStyle.light_purple : GlobalStyle.background_gray,
-                                  text: '전혀 아니에요',
-                                ),
-                                CheckCircular(
-                                  checktap: () {
-                                    setState(() {
-                                      second = !second;
-                                      first = false;
-                                      third = false;
-                                      fourth = false;
-                                      fifth = false;
-                                    });
-                                  },
-                                  color: second ? GlobalStyle.light_purple : GlobalStyle.background_gray,
-                                  text: '아니에요',
-                                ),
-                                CheckCircular(
-                                  checktap: () {
-                                    setState(() {
-                                      third = !third;
-                                      first = false;
-                                      second = false;
-                                      fourth = false;
-                                      fifth = false;
-                                    });
-                                  },
-                                  color: third ? GlobalStyle.light_purple : GlobalStyle.background_gray,
-                                  text: '보통',
-                                ),
-                                CheckCircular(
-                                  checktap: () {
-                                    setState(() {
-                                      fourth = !fourth;
-                                      first = false;
-                                      second = false;
-                                      third = false;
-                                      fifth = false;
-                                    });
-                                  },
-                                  color: fourth ? GlobalStyle.light_purple : GlobalStyle.background_gray,
-                                  text: '그래요',
-                                ),
-                                CheckCircular(
-                                  checktap: () {
-                                    setState(() {
-                                      fifth = !fifth;
-                                      first = false;
-                                      second = false;
-                                      third = false;
-                                      fourth = false;
-                                    });
-                                  },
-                                  color: fifth ? GlobalStyle.light_purple : GlobalStyle.background_gray,
-                                  text: '매우 그래요',
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    // --------------다음/이전 페이지 버튼---------------
-                    GestureDetector(
-                      onTap: (){},
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 220,),
-                        width: 200,
-                        height: 60,
-                        decoration: BoxDecoration(
-                            color: first || second || third || fourth || fifth ? GlobalStyle.green : GlobalStyle.gray,
-                            borderRadius: BorderRadius.circular(5)
                         ),
-                        child: const Center(
-                          child: Text('다음',
-                            style: TextStyle(
-                                color: GlobalStyle.white,
-                                fontSize: 18
+                        Container(height: 20,),
+                        Text(subContentsList[0],//서브 질문
+                          style: const TextStyle(
+                              fontSize: 22,
+                              color: GlobalStyle.dark
+                          ),
+                        ),
+                        Container(height: 130,),
+                        //체크박스
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            CheckCircular(
+                              checktap: () {
+                                setState(() {
+                                  first = !first;
+                                  second = false;
+                                  third = false;
+                                  fourth = false;
+                                  fifth = false;
+                                });
+                              },
+                              color: first ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                              text: '전혀 아니에요',
                             ),
+                            CheckCircular(
+                              checktap: () {
+                                setState(() {
+                                  second = !second;
+                                  first = false;
+                                  third = false;
+                                  fourth = false;
+                                  fifth = false;
+                                });
+                              },
+                              color: second ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                              text: '아니에요',
+                            ),
+                            CheckCircular(
+                              checktap: () {
+                                setState(() {
+                                  third = !third;
+                                  first = false;
+                                  second = false;
+                                  fourth = false;
+                                  fifth = false;
+                                });
+                              },
+                              color: third ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                              text: '보통',
+                            ),
+                            CheckCircular(
+                              checktap: () {
+                                setState(() {
+                                  fourth = !fourth;
+                                  first = false;
+                                  second = false;
+                                  third = false;
+                                  fifth = false;
+                                });
+                              },
+                              color: fourth ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                              text: '그래요',
+                            ),
+                            CheckCircular(
+                              checktap: () {
+                                setState(() {
+                                  fifth = !fifth;
+                                  first = false;
+                                  second = false;
+                                  third = false;
+                                  fourth = false;
+                                });
+                              },
+                              color: fifth ? GlobalStyle.light_purple : GlobalStyle.background_gray,
+                              text: '매우 그래요',
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  // --------------다음/이전 페이지 버튼---------------
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      margin: const EdgeInsets.only(top: 220,),
+                      width: 200,
+                      height: 60,
+                      decoration: BoxDecoration(
+                          color: first || second || third || fourth || fifth ? GlobalStyle.green : GlobalStyle.gray,
+                          borderRadius: BorderRadius.circular(5)
+                      ),
+                      child: const Center(
+                        child: Text('다음',
+                          style: TextStyle(
+                              color: GlobalStyle.white,
+                              fontSize: 18
                           ),
                         ),
                       ),
                     ),
-                  ],
-                )
-            )
-          ],
+                  ),
+                ],
+              )
+            ],
+          ),
         )
         // ----------------------------Mobile.ver-------------------------------
         : SafeArea(
