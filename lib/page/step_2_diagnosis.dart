@@ -14,11 +14,6 @@ class StepTwo extends StatefulWidget {
 }
 
 class _StepTwoState extends State<StepTwo> {
-  double mediaWidth(BuildContext context, double scale) =>
-      MediaQuery.of(context).size.width * scale;
-  double mediaHeight(BuildContext context, double scale) =>
-      MediaQuery.of(context).size.height * scale;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +22,7 @@ class _StepTwoState extends State<StepTwo> {
         child: Center(
           child: Column(
             children: [
-              Container(height: 70,),
+              Container(height: 90.h,),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -43,7 +38,7 @@ class _StepTwoState extends State<StepTwo> {
                     img: 'images/default_diagnosis.png'
                 ),
               ),
-              Container(height: 50,),
+              Container(height: 70.h,),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -59,7 +54,7 @@ class _StepTwoState extends State<StepTwo> {
                     img: 'images/mbti_diagnosis.png'
                 ),
               ),
-              Container(height: 50,),
+              Container(height: 70.h,),
               GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -75,7 +70,7 @@ class _StepTwoState extends State<StepTwo> {
                     img: 'images/AI_diagnosis.png'
                 ),
               ),
-              Container(height: 50,),
+              Container(height: 90.h,),
             ],
           ),
 
@@ -89,9 +84,10 @@ class _StepTwoState extends State<StepTwo> {
           leading: Icon(Icons.arrow_back_ios_new_rounded, color: GlobalStyle.gray,),
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 25.w),
           child: Column(
             children: [
+              Container(height: 10.h,),
               Row(
                 children: [
                   Image.asset('images/pin.png', width: 25.w, height: 25.h,),
@@ -106,7 +102,9 @@ class _StepTwoState extends State<StepTwo> {
               Container(height: 30.h,),
               GestureDetector(
                 onTap: () {
-
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DiagnosisCondition()),);
                 },
                 child: TapContents(
                     img: 'images/default_diagnosis.png',
@@ -117,7 +115,9 @@ class _StepTwoState extends State<StepTwo> {
               Container(height: 25.h,),
               GestureDetector(
                 onTap: () {
-
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DiagnosisMbti()),);
                 },
                 child: TapContents(
                     img: 'images/mbti_diagnosis.png',
@@ -158,8 +158,6 @@ class Contents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double mediaWidth(BuildContext context, double scale) => MediaQuery.of(context).size.width * scale;
-    double mediaHeight(BuildContext context, double scale) => MediaQuery.of(context).size.height * scale;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -168,23 +166,22 @@ class Contents extends StatelessWidget {
           children: [
             Text(title,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 6.sp,
                 fontWeight: FontWeight.bold,
                 color: GlobalStyle.light_black,
               ),
             ),
             Text(subtitle,
               style: TextStyle(
-                fontSize: 17,
+                fontSize: 5.sp,
                 color: GlobalStyle.light_gray,
                 fontWeight: FontWeight.w100,
               ),
             ),
-            Container(height: 25,),
+            Container(height: 25.h,),
             Container(
-              padding: EdgeInsets.fromLTRB(60, 30, 0, 30),
-              width: mediaWidth(context, 0.6),
-              height: mediaHeight(context, 0.4),
+              padding: EdgeInsets.fromLTRB(20.w, 35.h, 0, 60.h),
+              width: 260.w,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   color: GlobalStyle.white,
@@ -200,27 +197,27 @@ class Contents extends StatelessWidget {
               child: Row(
                 children: [
                   Flexible(
-                    flex: 3,
+                    flex: 4,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(width: 80, height: 4, color: GlobalStyle.light_purple, margin: EdgeInsets.only(bottom: 15),),
+                        Container(width: 20.w, height: 4.5.h, color: GlobalStyle.light_purple, margin: EdgeInsets.only(bottom: 15),),
                         Text(txt, style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 6.sp,
                           color: GlobalStyle.light_black,
                           fontWeight: FontWeight.w500,
                          ),
                         ),
-                        Container(height: 10,),
+                        Container(height: 10.h,),
                         Text(subtxt, style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 5.sp,
                           color: GlobalStyle.light_black,
                           fontWeight: FontWeight.w100,
                          ),
                         ),
-                        Container(height: 10,),
+                        Container(height: 10.h,),
                         Text(endtxt, style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 5.sp,
                           color: GlobalStyle.light_black,
                           fontWeight: FontWeight.w100,
                          ),
@@ -234,7 +231,7 @@ class Contents extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Image.asset(img, width: 90, height: 90,)
+                          Image.asset(img, width: 90.w, height: 90.h,)
                         ],
                       ),
                     ),
@@ -256,7 +253,6 @@ class TapContents extends StatelessWidget {
 
   final img;
   final String title, subtitle;
-
 
   @override
   Widget build(BuildContext context) {

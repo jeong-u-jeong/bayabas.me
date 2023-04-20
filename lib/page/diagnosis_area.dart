@@ -1,31 +1,54 @@
 import 'package:diagnosis/global_assets/global_style.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class DiagnosisArea extends StatelessWidget {
   const DiagnosisArea({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: Get.width > 414
+      ? SingleChildScrollView(
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
+                height: 160,
                 width: double.infinity,
-                height: 100,
+                decoration: const BoxDecoration(
+                  color: GlobalStyle.background_gray,
+                ),
+                child: Center(
+                  child: Text(
+                    '두피 면적 테스트',
+                    style: TextStyle(
+                        fontSize: 4.sp,
+                        color: GlobalStyle.dark
+                    ),
+                  ),
+                ),
               ),
+              Container(height: 30.w,),
               OneTest(),
-              Container(height: 50,),
-              Test(),
-              Container(height: 50,),
-              ThreeTest(),
-              Container(height: 50,),
             ],
           ),
+        ),
+      )
+      :
+      Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: GlobalStyle.transparent,
+          leading: Icon(Icons.arrow_back_ios_new_rounded, color: GlobalStyle.gray,),
+        ),
+        body: Column(
+          children: [
+
+          ],
         ),
       ),
     );
@@ -45,11 +68,11 @@ class TabTitle extends StatelessWidget {
       child: Column(
         children: [
           Text(tabtitle, style: TextStyle(
-            fontSize: 18,
+            fontSize: 4.sp,
             fontWeight: FontWeight.bold,
           ),),
           Text(subtitle, style: TextStyle(
-            fontSize: 16,
+            fontSize: 4.sp,
           ),),
         ],
       ),
@@ -78,11 +101,11 @@ class _OneTestState extends State<OneTest> {
             subtitle: '바야바즈 두피면적 진단은 성별과 나이대를 토대로 면적이 계산되요.'
         ),
         Container(
-          width: 500,
+          width: 100.w,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(height: 30,),
+              Container(height: 30.h,),
               GestureDetector(
                 onTap:  () {
                   setState(() {
@@ -131,6 +154,28 @@ class _OneTestState extends State<OneTest> {
                         fontSize: 16,
                         color: female ? GlobalStyle.white : GlobalStyle.light_gray,
                       ),)
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+
+                },
+                child: Container(
+                  margin: EdgeInsets.only(top: 120.h,),
+                  width: 38.w,
+                  height: 40.h,
+                  decoration: BoxDecoration(
+                      color: male || female ? GlobalStyle.green : GlobalStyle.gray,
+                      borderRadius: BorderRadius.circular(5.r)
+                  ),
+                  child: Center(
+                    child: Text('다음',
+                      style: TextStyle(
+                          color: GlobalStyle.white,
+                          fontSize: 3.sp
+                      ),
+                    ),
                   ),
                 ),
               ),
