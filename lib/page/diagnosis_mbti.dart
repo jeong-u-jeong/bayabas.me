@@ -219,7 +219,7 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
               // --------------Header-----------------
               Container(
                 width: double.infinity,
-                height: 54.h,
+                height: 54,
                 color: GlobalStyle.background_gray,
                 child: Center(
                   child: Text('탈모 MBTI',
@@ -239,17 +239,17 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
                       // 질문
                       Expanded(
                         child: Container(
-                          padding: EdgeInsets.only(top: 130.h),
+                          padding: EdgeInsets.only(top: 160.h),
                           child: Column(
                             children: [
                               Text(contentsList[1], //질문
                                 style: TextStyle(
-                                    fontSize: 18.sp,
+                                    fontSize: 17.sp,
                                     color: GlobalStyle.dark,
                                     fontWeight: FontWeight.w600
                                 ),
                               ),
-                              Container(height: 70.h,),
+                              Container(height: 130.h,),
                               //체크박스
                               Container(
                                 child: Row(
@@ -331,7 +331,7 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
                       GestureDetector(
                         onTap: (){},
                         child: Container(
-                          margin: EdgeInsets.only(bottom: 110.h,),
+                          margin: const EdgeInsets.only(bottom: 90),
                           width: 100.w,
                           height: 40.h,
                           decoration: BoxDecoration(
