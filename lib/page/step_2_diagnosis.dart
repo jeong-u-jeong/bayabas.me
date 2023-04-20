@@ -81,7 +81,7 @@ class _StepTwoState extends State<StepTwo> {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: GlobalStyle.transparent,
-          leading: Icon(Icons.arrow_back_ios_new_rounded, color: GlobalStyle.gray,),
+          // leading: Icon(Icons.arrow_back_ios_new_rounded, color: GlobalStyle.gray,),
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 25.w),

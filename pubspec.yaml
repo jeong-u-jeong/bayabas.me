@@ -49,6 +49,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  get_it:
+  flutter_web_plugins:
+    sdk: flutter
 
   # API
   get:

@@ -206,7 +206,7 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
               // --------------Header-----------------
               Container(
                 width: double.infinity,
-                height: 54.h,
+                height: 54,
                 color: GlobalStyle.background_gray,
                 child: Center(
                   child: Text('내 두피상태 진단',
@@ -228,11 +228,10 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
                         child: Container(
                           padding: EdgeInsets.only(top: 110.h),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(contentsList[1], //질문
                                 style: TextStyle(
-                                    fontSize: 18.sp,
+                                    fontSize: 17.sp,
                                     color: GlobalStyle.dark,
                                     fontWeight: FontWeight.w600
                                 ),
@@ -240,11 +239,11 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
                               Container(height: 26.h,),
                               Text(subContentsList[1],//서브 질문
                                 style: TextStyle(
-                                    fontSize: 18.sp,
+                                    fontSize: 17.sp,
                                     color: GlobalStyle.dark
                                 ),
                               ),
-                              Container(height: 70.h,),
+                              Container(height: 100.h,),
                               //체크박스
                               Container(
                                 child: Row(
@@ -326,7 +325,7 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
                       GestureDetector(
                         onTap: (){},
                         child: Container(
-                          margin: EdgeInsets.only(bottom: 110.h,),
+                          margin: const EdgeInsets.only(bottom: 90),
                           width: 100.w,
                           height: 40.h,
                           decoration: BoxDecoration(
@@ -381,8 +380,8 @@ class _CheckCircularState extends State<CheckCircular> {
         GestureDetector(
           onTap: widget.checktap,
           child: Container(
-            width: Get.width > 414 ? 13.w : 56.w,
-            height: Get.width > 414 ? 13.w : 56.w,
+            width: Get.width > 414 ? 13.w : 52.w,
+            height: Get.width > 414 ? 13.w : 52.w,
             decoration: BoxDecoration(
                 border: Border.all(
                   color: widget.color,
