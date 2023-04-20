@@ -115,72 +115,60 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Text('전혀 아니다',
-                                  style: TextStyle(
-                                    color: GlobalStyle.light_purple,
-                                    fontSize: 3.5.sp,
-                                  ),
+                                CheckCircular(
+                                  checktap: () {
+                                    setState(() {
+                                      first = !first;
+                                      second = false;
+                                      third = false;
+                                      fourth = false;
+                                      fifth = false;
+                                    });
+                                  },
                                 ),
                                 CheckCircular(
-                                    checktap: () {
-                                      setState(() {
-                                        first = !first;
-                                        second = false;
-                                        third = false;
-                                        fourth = false;
-                                        fifth = false;
-                                      });
-                                    },
-                                    color: GlobalStyle.light_purple, checkingColor: first ? GlobalStyle.light_purple : GlobalStyle.transparent, size: 28.h),
+                                  checktap: () {
+                                    setState(() {
+                                      second = !second;
+                                      first = false;
+                                      third = false;
+                                      fourth = false;
+                                      fifth = false;
+                                    });
+                                  },
+                                ),
                                 CheckCircular(
-                                    checktap: () {
-                                      setState(() {
-                                        second = !second;
-                                        first = false;
-                                        third = false;
-                                        fourth = false;
-                                        fifth = false;
-                                      });
-                                    },
-                                    color: GlobalStyle.light_purple, checkingColor: second ? GlobalStyle.light_purple : GlobalStyle.transparent, size: 24.h),
+                                  checktap: () {
+                                    setState(() {
+                                      third = !third;
+                                      first = false;
+                                      second = false;
+                                      fourth = false;
+                                      fifth = false;
+                                    });
+                                  },
+                                ),
                                 CheckCircular(
-                                    checktap: () {
-                                      setState(() {
-                                        third = !third;
-                                        first = false;
-                                        second = false;
-                                        fourth = false;
-                                        fifth = false;
-                                      });
-                                    },
-                                    color: GlobalStyle.gray, checkingColor: third ? GlobalStyle.gray : GlobalStyle.transparent, size: 20.h),
+                                  checktap: () {
+                                    setState(() {
+                                      fourth = !fourth;
+                                      first = false;
+                                      second = false;
+                                      third = false;
+                                      fifth = false;
+                                    });
+                                  },
+                                ),
                                 CheckCircular(
-                                    checktap: () {
-                                      setState(() {
-                                        fourth = !fourth;
-                                        first = false;
-                                        second = false;
-                                        third = false;
-                                        fifth = false;
-                                      });
-                                    },
-                                    color: GlobalStyle.green, checkingColor: fourth ? GlobalStyle.green : GlobalStyle.transparent, size: 24.h),
-                                CheckCircular(
-                                    checktap: () {
-                                      setState(() {
-                                        fifth = !fifth;
-                                        first = false;
-                                        second = false;
-                                        third = false;
-                                        fourth = false;
-                                      });
-                                    },
-                                    color: GlobalStyle.green, checkingColor: fifth ? GlobalStyle.green : GlobalStyle.transparent, size: 28.h),
-                                Text('매우 그렇다',
-                                  style: TextStyle(
-                                    color: GlobalStyle.green,
-                                    fontSize:3.5.sp,
-                                  ),
+                                  checktap: () {
+                                    setState(() {
+                                      fifth = !fifth;
+                                      first = false;
+                                      second = false;
+                                      third = false;
+                                      fourth = false;
+                                    });
+                                  },
                                 ),
                               ],
                             ),
