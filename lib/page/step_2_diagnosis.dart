@@ -158,90 +158,88 @@ class Contents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(title,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: GlobalStyle.light_black,
-              ),
+    return Container(
+      width: 1024,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title,
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: GlobalStyle.light_black,
             ),
-            Text(subtitle,
-              style: TextStyle(
-                fontSize: 16,
-                color: GlobalStyle.light_gray,
-                fontWeight: FontWeight.w100,
-              ),
+          ),
+          Text(subtitle,
+            style: TextStyle(
+              fontSize: 19,
+              color: GlobalStyle.light_gray,
+              fontWeight: FontWeight.w100,
             ),
-            Container(height: 25,),
-            Container(
-              padding: EdgeInsets.fromLTRB(50, 35, 10, 60),
-              width: 850,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  color: GlobalStyle.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: GlobalStyle.light_gray.withOpacity(0.2),
-                      blurRadius: 3.0,
-                      spreadRadius: 0.0,
-                      offset: const Offset(0,2),
-                    )
-                  ]
-              ),
-              child: Row(
-                children: [
-                  Flexible(
-                    flex: 4,
+          ),
+          Container(height: 25,),
+          Container(
+            padding: EdgeInsets.fromLTRB(50, 35, 10, 60),
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: GlobalStyle.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: GlobalStyle.light_gray.withOpacity(0.2),
+                    blurRadius: 3.0,
+                    spreadRadius: 0.0,
+                    offset: const Offset(0,2),
+                  )
+                ]
+            ),
+            child: Row(
+              children: [
+                Flexible(
+                  flex: 4,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(width: 60, height: 5, color: GlobalStyle.light_purple, margin: EdgeInsets.only(bottom: 15),),
+                      Text(txt, style: TextStyle(
+                        fontSize: 19,
+                        color: GlobalStyle.light_black,
+                        fontWeight: FontWeight.w500,
+                       ),
+                      ),
+                      Container(height: 10,),
+                      Text(subtxt, style: TextStyle(
+                        fontSize: 18,
+                        color: GlobalStyle.light_black,
+                        fontWeight: FontWeight.w100,
+                       ),
+                      ),
+                      Container(height: 10,),
+                      Text(endtxt, style: TextStyle(
+                        fontSize: 18,
+                        color: GlobalStyle.light_black,
+                        fontWeight: FontWeight.w100,
+                       ),
+                      ),
+                    ],
+                  ),
+                ),
+                Flexible(
+                  flex: 1,
+                  child: Center(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(width: 60, height: 5, color: GlobalStyle.light_purple, margin: EdgeInsets.only(bottom: 15),),
-                        Text(txt, style: TextStyle(
-                          fontSize: 18,
-                          color: GlobalStyle.light_black,
-                          fontWeight: FontWeight.w500,
-                         ),
-                        ),
-                        Container(height: 10,),
-                        Text(subtxt, style: TextStyle(
-                          fontSize: 16,
-                          color: GlobalStyle.light_black,
-                          fontWeight: FontWeight.w100,
-                         ),
-                        ),
-                        Container(height: 10,),
-                        Text(endtxt, style: TextStyle(
-                          fontSize: 15,
-                          color: GlobalStyle.light_black,
-                          fontWeight: FontWeight.w100,
-                         ),
-                        ),
+                        Image.asset(img, width: 90, height: 90,)
                       ],
                     ),
                   ),
-                  Flexible(
-                    flex: 1,
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(img, width: 90, height: 90,)
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }
