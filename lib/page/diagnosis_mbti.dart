@@ -76,7 +76,7 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
           children: [
             // --------------Header-----------------
             Container(
-              height: 160,
+              height: 160.h,
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: GlobalStyle.background_gray,
@@ -219,7 +219,7 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
               // --------------Header-----------------
               Container(
                 width: double.infinity,
-                height: 54,
+                height: 54.h,
                 color: GlobalStyle.background_gray,
                 child: Center(
                   child: Text('탈모 MBTI',
@@ -249,7 +249,7 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
                                     fontWeight: FontWeight.w600
                                 ),
                               ),
-                              Container(height: 150.h,),
+                              Container(height: 70.h,),
                               //체크박스
                               Container(
                                 child: Row(

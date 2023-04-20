@@ -183,7 +183,7 @@ class Contents extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(20.w, 35.h, 0, 60.h),
               width: 260.w,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(30.r),
                   color: GlobalStyle.white,
                   boxShadow: [
                     BoxShadow(
@@ -201,7 +201,7 @@ class Contents extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(width: 20.w, height: 4.5.h, color: GlobalStyle.light_purple, margin: EdgeInsets.only(bottom: 15),),
+                        Container(width: 20.w, height: 4.5.h, color: GlobalStyle.light_purple, margin: EdgeInsets.only(bottom: 15.h),),
                         Text(txt, style: TextStyle(
                           fontSize: 6.sp,
                           color: GlobalStyle.light_black,
@@ -259,10 +259,9 @@ class TapContents extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 20.w),
       width: double.infinity,
-      // height: 150.h,
       decoration: BoxDecoration(
         color: GlobalStyle.white,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
         boxShadow: [BoxShadow(
           color: GlobalStyle.gray,
           offset: Offset(0,1),

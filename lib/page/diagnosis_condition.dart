@@ -56,7 +56,7 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
           children: [
             // --------------Header-----------------
             Container(
-              height: 160,
+              height: 160.h,
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: GlobalStyle.background_gray,
@@ -206,7 +206,7 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
               // --------------Header-----------------
               Container(
                 width: double.infinity,
-                height: 54,
+                height: 54.h,
                 color: GlobalStyle.background_gray,
                 child: Center(
                   child: Text('내 두피상태 진단',
@@ -244,7 +244,7 @@ class _DiagnosisConditionState extends State<DiagnosisCondition> {
                                     color: GlobalStyle.dark
                                 ),
                               ),
-                              Container(height: 150.h,),
+                              Container(height: 70.h,),
                               //체크박스
                               Container(
                                 child: Row(

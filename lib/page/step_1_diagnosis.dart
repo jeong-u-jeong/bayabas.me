@@ -11,11 +11,6 @@ class StepOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double mediaWidth(BuildContext context, double scale) =>
-        MediaQuery.of(context).size.width * scale;
-    double mediaHeight(BuildContext context, double scale) =>
-        MediaQuery.of(context).size.height * scale;
-
     return Scaffold(
       body: Get.width > 414
           ? Row(
@@ -97,7 +92,7 @@ class StepOne extends StatelessWidget {
                           child: Text(
                             '진단 구경하기',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 4.sp,
                               color: GlobalStyle.intro_txt_gray,
                             ),
                           ),
@@ -155,7 +150,7 @@ class StepOne extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 40.h, horizontal: 25.w),
                     decoration: BoxDecoration(
                       color: GlobalStyle.white,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       boxShadow: [BoxShadow(
                         color: GlobalStyle.gray,
                         offset: Offset(0,1),
@@ -206,43 +201,6 @@ class StepOne extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Text('바야바즈가',
-                //   style: TextStyle(
-                //     fontSize: 18.sp,
-                //     color: GlobalStyle.light_gray,
-                //   ),
-                // ),
-                // Text('제공하는 두피 진단은 유전적 요인과',
-                //   style: TextStyle(
-                //     fontSize: 18.sp,
-                //     color: GlobalStyle.light_gray,
-                //   ),
-                // ),
-                // Text('생활 패턴, 스트레스와 두피 타입 등을 파악해',
-                //   style: TextStyle(
-                //     fontSize: 18.sp,
-                //     color: GlobalStyle.light_gray,
-                //   ),
-                // ),
-                // Text('현재 두피의 상태와 건강을 진단해요!',
-                //   style: TextStyle(
-                //     fontSize: 18.sp,
-                //     color: GlobalStyle.light_gray,
-                //   ),
-                // ),
-                // Container(height: 50.h,),
-                // Text('두피 질병 및 질환은',
-                //   style: TextStyle(
-                //     fontSize: 16.sp,
-                //     color: GlobalStyle.light_gray,
-                //   ),
-                // ),
-                // Text('의료기관을 방문 해 주세요',
-                //   style: TextStyle(
-                //     fontSize: 16.sp,
-                //     color: GlobalStyle.light_gray,
-                //   ),
-                // ),
                 Container(height: 70.h,),
                 GestureDetector(
                   onTap: () {
