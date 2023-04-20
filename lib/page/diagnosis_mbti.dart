@@ -187,7 +187,7 @@ class _DiagnosisMbtiState extends State<DiagnosisMbti> {
                   GestureDetector(
                     onTap: (){},
                     child: Container(
-                      margin: const EdgeInsets.only(top: 220,),
+                      margin: const EdgeInsets.only(top: 220, bottom: 100,),
                       width: 200,
                       height: 60,
                       decoration: BoxDecoration(
